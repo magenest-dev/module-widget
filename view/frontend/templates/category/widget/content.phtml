@@ -1,0 +1,38 @@
+<?php
+/** @var Magenest\Widget\Block\Product\ProductsList $block */
+?>
+
+<div class="tab-new-category  container">
+<?php if ($block->getTitle()): ?>
+    <div class="block-title">
+        <?php echo __($block->getTitle())?>
+    </div>
+<?php endif;?>
+<?php
+    $categoryIds = $block->getCategorySelected();
+    $first = true;
+    ?> 
+    <div class="product-data-items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+    	<div class="nav-tabs">
+	        <?php
+			    foreach ($categoryIds as $id => $name):?> 	
+			       <div id="tab-label-<?php echo trim($id)?>" data-role="collapsible" aria-labeledby="tab-label-<?php echo $id; ?>-title" class="tab-title 
+			       	<?php if($first) echo 'active'; 
+			       			$first = false;?>">
+			            <a id="tab-label-<?php echo $id; ?>-title" href="#tab-<?php echo $id; ?>" data-toggle="switch" tabindex="-1" class="data switch">
+			               <?php echo $name; ?> 	
+			            </a>
+			        </div> 
+        	<?php endforeach;?>
+        </div>
+    	<?php
+    		$first = true;
+	    	foreach ($categoryIds as $id => $name):?>
+	    		<div id="tab-<?php echo trim($id); ?> <?php if($first) echo 'active'; 
+			       			$first = false;?>" class="tab-content" style="" data-role="content">
+				<?php
+	        		echo $block->getWidgetCategory()->setCategoryId($id)->setTitle($name)->toHtml(); ?>
+        		</div>
+    	<?php endforeach;?>
+	</div>
+</div>

@@ -1,0 +1,57 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$element = $block->getElement();
+$fieldId = ($element->getHtmlContainerId()) ? ' id="' . $element->getHtmlContainerId() . '"' : '';
+$fieldClass = "field admin__field field-{$element->getId()} {$element->getCssClass()}";
+$fieldClass .= ($element->getRequired()) ? ' required' : '';
+$fieldAttributes = $fieldId . ' class="' . $fieldClass . '" ' . $block->getUiId('form-field', $element->getId());
+?>
+<?php echo $block->getWidgetType();?>
+<div<?php /* @escapeNotVerified */ echo $fieldAttributes ?>>
+    <?php echo $element->getLabelHtml() ?>
+    <div class="control admin__field-control">
+        <div class="rule-tree">
+            <div class="rule-tree-wrapper">
+                <ul id="conditions__1__children" class="rule-param-children" style="border-left:none">
+                    <li class="">
+                        <span class="rule-param">
+                            <a href="javascript:void(0)" class="label">...</a>
+                            <span class="element">
+                                <input id="conditions__1--1__value" name="parameters[category_ids][value]" data-ui-id="editable-0-text-parameters-conditions-1-1-value" value="" class=" input-text admin__control-text element-value-changer" type="text">
+                                <label class="addafter" for="conditions__1--1__value">
+                                    <a href="javascript:void(0)" class="rule-chooser-trigger">
+                                        <img src="<?php echo $block->getViewFileUrl('images/rule_chooser_trigger.gif')?>" alt="" class="v-middle rule-chooser-trigger" title="Open Chooser">
+                                    </a>
+                                </label>
+                                <a href="javascript:void(0)" class="rule-param-apply">
+                                    <img src="<?php echo $block->getViewFileUrl('images/rule_component_apply.gif');?>" class="v-middle" alt="Apply" title="Apply">
+                                </a>
+                            </span>
+                        </span>
+                        <div class="note">Select Category</div>
+                        <div class="rule-chooser" url="<?php echo $block->getCategoryUrl()?>">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    require([
+        "Magento_Rule/rules",
+        "prototype"
+    ], function(VarienRulesForm){
+        window.<?php echo $block->getHtmlId() ?> = new VarienRulesForm('<?php echo $block->getHtmlId() ?>', '<?php /* @escapeNotVerified */ echo $block->getNewChildUrl() ?>');
+    });
+</script>
+
