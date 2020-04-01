@@ -23,24 +23,6 @@
             <parameter name="title" xsi:type="text" required="false" visible="true">
                 <label translate="true">Title</label>
             </parameter>
-            <parameter name="count_down_end_at" xsi:type="text" required="true" visible="true">
-                <label translate="true">Count down end time</label>
-                <depends>
-                    <parameter name="show_pager" value="1" />
-                </depends>
-                <value>5</value>
-            </parameter>
-            <parameter name="show_pager" xsi:type="select" visible="true"
-                       source_model="Magento\Config\Model\Config\Source\Yesno">
-                <label translate="true">Display Page Control</label>
-            </parameter>
-            <parameter name="products_per_page" xsi:type="text" required="true" visible="true">
-                <label translate="true">Number of Products per Page</label>
-                <depends>
-                    <parameter name="show_pager" value="1" />
-                </depends>
-                <value>5</value>
-            </parameter>
             <parameter name="products_count" xsi:type="text" required="true" visible="true">
                 <label translate="true">Number of Products to Display</label>
                 <value>10</value>
@@ -62,29 +44,6 @@
             <parameter name="cache_lifetime" xsi:type="text" visible="true">
                 <label translate="true">Cache Lifetime (Seconds)</label>
                 <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
-            </parameter>
-        </parameters>
-    </widget>
-    <widget id="magenest_widget_bestsellers_list" class="Magenest\Widget\Block\Product\Widget\BestSellers" is_email_compatible="true"
-            placeholder_image="Magenest_Widget::images/product_widget_hotsales.png" ttl="86400">
-        <label translate="true">Magenest Widget: Catalog Bestsellers Product List</label>
-        <description translate="true">Bestsellers List</description>
-        <parameters>
-            <parameter name="best_sellers_type" xsi:type="select" visible="true" required="true"
-                source_model="Magenest\Widget\Model\Config\Source\BestSellers">
-                <label translate="true">Display Bestsellers Products</label>
-            </parameter>
-            <parameter name="products_count" xsi:type="text" required="true" visible="true">
-                <label translate="true">Number of Products to Display</label>
-                <value>10</value>
-            </parameter>
-            <parameter name="template" xsi:type="select" required="true" visible="true">
-                <label translate="true">Template</label>
-                <options>
-                    <option name="default" value="Magenest_Widget::product/widget/sales/content/bestsellers.phtml" selected="true">
-                        <label translate="true">BestSellers Products Grid Template</label>
-                    </option>
-                </options>
             </parameter>
         </parameters>
     </widget>
