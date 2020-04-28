@@ -14,7 +14,9 @@ namespace Magenest\Widget\Block\Product\Widget;
 
 use Magento\Catalog\Model\Category;
 use Magento\Catalog\Model\Product;
+use Magento\Framework\App\ObjectManager;
 use Magento\Framework\DataObject\IdentityInterface;
+use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Catalog\Block\Product\AbstractProduct;
 use Magento\Catalog\Block\Product\Context;
@@ -22,6 +24,13 @@ use Magenest\Widget\Model\Product as ProductModel;
 
 class Products extends AbstractProduct implements BlockInterface, IdentityInterface
 {
+    /**
+     * Json Serializer Instance
+     *
+     * @var Json
+     */
+    private $json;
+
 	/**
      * @var ProductModel
      */
@@ -35,11 +44,13 @@ class Products extends AbstractProduct implements BlockInterface, IdentityInterf
 	public function __construct(
         ProductModel $productModel,
         Context $context,
+        Json $json = null,
         array $data = []
     )
     {
         parent::__construct($context, $data);
         $this->_productModel = $productModel;
+        $this->json = $json ?: ObjectManager::getInstance()->get(Json::class);
     }
 
     /**
@@ -70,7 +81,7 @@ class Products extends AbstractProduct implements BlockInterface, IdentityInterf
 	{
         $keyArr = parent::getCacheKeyInfo();
         $blockDataValue = array_values($this->getData());
-        $keyArr[] = implode("|", $blockDataValue);
+        $keyArr[] = $this->json->serialize($blockDataValue);
         return $keyArr;
 	}
 
