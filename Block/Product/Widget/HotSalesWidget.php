@@ -1,10 +1,15 @@
 <?php
 /**
- * Created by Magenest
- * User: Luu Thanh Thuy
- * Date: 09/01/2016
- * Time: 10:56
+ * Copyright © 2020 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_Widget extension
+ * NOTICE OF LICENSE
+ *
+ * @category Magenest
+ * @package Magenest_Widget
  */
+
 namespace Magenest\Widget\Block\Product\Widget;
 
 use Magento\Widget\Block\BlockInterface;

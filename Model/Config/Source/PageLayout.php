@@ -1,16 +1,15 @@
 <?php
 /**
- * Copyright © 2015 Magenest. All rights reserved.
+ * Copyright © 2020 Magenest. All rights reserved.
  * See COPYING.txt for license details.
- *
  *
  * Magenest_Widget extension
  * NOTICE OF LICENSE
  *
  * @category Magenest
- * @package  Magenest_Widget
- * @author   <ThaoPV> thaopw@gmail.com
+ * @package Magenest_Widget
  */
+
 namespace Magenest\Widget\Model\Config\Source;
 
 /**

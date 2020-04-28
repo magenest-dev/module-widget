@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © 2015 Magenest. All rights reserved.
+ * Copyright © 2020 Magenest. All rights reserved.
  * See COPYING.txt for license details.
  *
  *
@@ -10,7 +10,6 @@
  *
  * @category Magenest
  * @package  Magenest_Widget
- * @author   <ThaoPV> thaopw@gmail.com
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">

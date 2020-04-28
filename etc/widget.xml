@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 /**
- * Copyright © 2015 Magenest. All rights reserved.
+ * Copyright © 2020 Magenest. All rights reserved.
  * See COPYING.txt for license details.
  *
  *
@@ -10,7 +10,6 @@
  *
  * @category Magenest
  * @package  Magenest_Widget
- * @author   <ThaoPV> thaopw@gmail.com
  */
 -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -38,6 +37,64 @@
                     </option>
                     <option name="owl" value="Magenest_Widget::product/widget/sales/content/hot_sales_owl.phtml">
                         <label translate="true">Hot Sales Products Carousel Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget id="magenest_widget_extra_product_list" class="Magenest\Widget\Block\Product\Widget\Products">
+        <label translate="true">Magenest Widget: Extra Product List</label>
+        <description translate="true">List of Products by option</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="true" visible="true">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="product_source" xsi:type="select" visible="true">
+                <label translate="true">Select Product Source</label>
+                <options>
+                    <option name="default" value="latest" selected="true">
+                        <label translate="true">Latest Products</label>
+                    </option>
+                    <option name="special" value="special">
+                        <label translate="true">Special</label>
+                    </option>
+                    <option name="most_popular" value="popular">
+                        <label translate="true">Most Popular</label>
+                    </option>
+                    <option name="best_seller" value="best_seller">
+                        <label translate="true">Best Seller</label>
+                    </option>
+                    <option name="top_rated" value="top_rated">
+                        <label translate="true">Top Rated</label>
+                    </option>
+                    <option name="random" value="random">
+                        <label translate="true">Random</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="categories" xsi:type="multiselect" visible="true" source_model="Magenest\Widget\Model\Config\Source\CategoryList">
+                <label translate="true">Select Categories</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>10</value>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="Magenest_Widget::product/widget/extra_product_grid.phtml" selected="true">
+                        <label translate="true">Grid Template</label>
+                    </option>
+                    <option name="list" value="Magenest_Widget::product/widget/extra_product_list.phtml">
+                        <label translate="true">List Template</label>
+                    </option>
+                    <option name="owl" value="Magenest_Widget::product/widget/extra_product_owl.phtml">
+                        <label translate="true">Owl Carousel Template</label>
                     </option>
                 </options>
             </parameter>
